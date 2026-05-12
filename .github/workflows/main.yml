@@ -87,14 +87,13 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq \
-            libssl-dev libminizip-dev zlib1g-dev cmake g++ \
+            libssl-dev libminizip-dev zlib1g-dev g++ \
             git openssl unzip curl jq
 
           git clone --depth 1 https://github.com/zhlynn/zsign.git /tmp/zsign
           cd /tmp/zsign
-          cmake -B build -DCMAKE_BUILD_TYPE=Release .
-          cmake --build build -j$(nproc)
-          sudo cp build/zsign /usr/local/bin/zsign
+          make -j$(nproc)
+          sudo cp zsign /usr/local/bin/zsign
           zsign --version || echo "zsign installed"
 
       # ── 2. Fetch latest cert from NovaCerts repo ─────────────────────────────
