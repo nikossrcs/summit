@@ -40,11 +40,20 @@ def read_state(filename):
         return open(path).read().strip()
     return ""
 
+# Folders at the repo root that are never cert bundles
+NON_CERT_FOLDERS = {
+    "scripts", ".github", ".git", "docs", "tools",
+    "readme", "assets", "ci", ".vscode",
+}
+
 # ── Fetch ALL cert folders ────────────────────────────────────────────────────
 def get_all_cert_folders():
     """
-    Returns a list of all folder names at the root of CERT_REPO,
+    Returns a list of cert folder names at the root of CERT_REPO,
     sorted descending (newest first).
+    Excludes known non-cert folders (scripts, .github, etc.)
+    and any folder whose name starts with '.' or is all lowercase
+    (heuristic: real cert folders are typically company names).
     """
     url = f"{API}/repos/{CERT_REPO}/contents/"
     r = requests.get(url, headers=gh_headers(CERT_PAT), timeout=30)
@@ -56,10 +65,21 @@ def get_all_cert_folders():
     r.raise_for_status()
     items = r.json()
 
-    folders = sorted(
-        [i["name"] for i in items if i["type"] == "dir"],
-        reverse=True
-    )
+    folders = []
+    for i in items:
+        if i["type"] != "dir":
+            continue
+        name = i["name"]
+        # Skip known utility folders
+        if name.lower() in NON_CERT_FOLDERS:
+            continue
+        # Skip hidden folders
+        if name.startswith("."):
+            continue
+        folders.append(name)
+
+    folders.sort(reverse=True)
+    print(f"Discovered {len(folders)} cert folder(s) (excluded utility dirs).")
     return folders
 
 # ── Fetch latest IPA release ──────────────────────────────────────────────────
