@@ -40,6 +40,10 @@ def sanitize_slug(name):
     return "".join(c if c.isalnum() or c in "-_" else "_" for c in name)
 
 def generate_plist(ipa_url, display_name, bundle_id, version):
+    # Each cert gets a unique display_name so iOS shows the correct app name
+    # and can distinguish installs. bundle-version must also be unique per cert
+    # to prevent iOS caching the wrong install record.
+    safe_name = display_name.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
     return f"""<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
   "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -66,7 +70,7 @@ def generate_plist(ipa_url, display_name, bundle_id, version):
                 <key>kind</key>
                 <string>software</string>
                 <key>title</key>
-                <string>{display_name}</string>
+                <string>{safe_name}</string>
             </dict>
         </dict>
     </array>
@@ -75,12 +79,14 @@ def generate_plist(ipa_url, display_name, bundle_id, version):
 
 def cert_card_html(idx, cert):
     """Render one certificate card for the landing page."""
+    from urllib.parse import quote
     folder      = cert["folder"]
     ipa_url     = cert["ipa_url"]
     plist_url   = cert["plist_url"]
     sha         = cert["sha256"]
     size_mb     = cert["size_mb"]
-    itms_url    = f"itms-services://?action=download-manifest&url={plist_url}"
+    # iOS requires the manifest URL to be percent-encoded inside itms-services://
+    itms_url    = f"itms-services://?action=download-manifest&url={quote(plist_url, safe='')}"
     short_sha   = sha[:16]
     # Friendly display name: replace underscores/hyphens with spaces, title-case
     display     = folder.replace("_", " ").replace("-", " ").title()
@@ -141,8 +147,9 @@ def generate_html(certs, version, build_time):
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>{APP_NAME} — OTA Installer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -581,6 +588,71 @@ def generate_html(certs, version, build_time):
       line-height: 1.5;
     }}
 
+    /* ── DNS banner ── */
+    .dns-banner {{
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: linear-gradient(135deg, rgba(0,229,192,0.07), rgba(108,99,255,0.07));
+      border: 1px solid rgba(0, 229, 192, 0.25);
+      border-radius: var(--r);
+      padding: 1rem 1.25rem;
+      margin-bottom: 2.5rem;
+    }}
+
+    .dns-banner-icon {{
+      font-size: 1.6rem;
+      flex-shrink: 0;
+      width: 44px; height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 229, 192, 0.1);
+      border: 1px solid rgba(0, 229, 192, 0.2);
+      border-radius: 10px;
+    }}
+
+    .dns-banner-text {{
+      flex: 1;
+    }}
+
+    .dns-banner-title {{
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }}
+
+    .dns-banner-sub {{
+      font-size: 0.75rem;
+      color: var(--muted2);
+      line-height: 1.4;
+    }}
+
+    .dns-btn {{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.65rem 1.1rem;
+      background: rgba(0, 229, 192, 0.12);
+      color: var(--accent3);
+      border: 1px solid rgba(0, 229, 192, 0.35);
+      border-radius: 9px;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.18s, box-shadow 0.18s;
+      flex-shrink: 0;
+    }}
+
+    .dns-btn:hover {{
+      background: rgba(0, 229, 192, 0.2);
+      box-shadow: 0 0 16px rgba(0, 229, 192, 0.2);
+    }}
+
     /* ── Footer ── */
     footer {{
       margin-top: 3rem;
@@ -594,11 +666,29 @@ def generate_html(certs, version, build_time):
     footer a {{ color: var(--accent2); text-decoration: none; }}
     footer a:hover {{ text-decoration: underline; }}
 
-    /* ── Responsive ── */
+    /* ── Responsive / iPhone ── */
     @media (max-width: 480px) {{
-      .cert-grid {{ grid-template-columns: 1fr; }}
-      .hero h1 {{ font-size: 1.8rem; }}
-      .stats-bar {{ gap: 0.4rem; }}
+      .page {{ padding: 0 1rem env(safe-area-inset-bottom, 2rem); }}
+      .cert-grid {{ grid-template-columns: 1fr; gap: 0.85rem; }}
+      .hero {{ padding: 2.5rem 0 2rem; }}
+      .hero h1 {{ font-size: 1.75rem; }}
+      .hero-sub {{ font-size: 0.9rem; }}
+      .stats-bar {{ gap: 0.4rem; margin: 1.25rem 0 2rem; }}
+      .stat-pill {{ font-size: 0.68rem; padding: 0.4rem 0.75rem; }}
+      .cert-card {{ padding: 1.1rem; }}
+      .cert-name {{ font-size: 0.88rem; }}
+      .install-btn {{
+        padding: 0.85rem 0.9rem;
+        font-size: 0.9rem;
+        min-height: 48px;
+      }}
+      .direct-btn {{
+        padding: 0.85rem 0.85rem;
+        min-height: 48px;
+      }}
+      .dns-banner {{ flex-direction: column; gap: 0.75rem; text-align: center; }}
+      .dns-btn {{ width: 100%; justify-content: center; min-height: 48px; }}
+      .logo {{ width: 68px; height: 68px; font-size: 2rem; }}
     }}
   </style>
 </head>
@@ -626,6 +716,25 @@ def generate_html(certs, version, build_time):
         <span class="dot"></span>
         Built <strong>{build_time} UTC</strong>
       </div>
+    </div>
+
+    <!-- DNS Profile Banner -->
+    <div class="dns-banner">
+      <div class="dns-banner-icon">🌐</div>
+      <div class="dns-banner-text">
+        <div class="dns-banner-title">Install DNS Profile</div>
+        <div class="dns-banner-sub">Recommended for stability — install khoindvn DNS before signing.</div>
+      </div>
+      <a href="https://github.com/dns-khoindvn/top-country-stats/releases/download/DNS/khoindvn.io.vn.mobileconfig"
+         class="dns-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>
+          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        Install DNS
+      </a>
     </div>
 
     <!-- Cert grid -->
@@ -709,12 +818,14 @@ def main():
         plist_name = f"manifest-{slug}.plist"
         plist_url  = f"{BASE_URL}/{plist_name}"
 
-        # Write per-cert plist
-        plist_content = generate_plist(ipa_url, APP_NAME, BUNDLE_ID, version)
+        # Use cert folder name as the plist title — iOS uses this to identify
+        # the install; using APP_NAME for all certs causes "couldn't be installed"
+        cert_display_name = f"{APP_NAME} — {folder}"
+        plist_content = generate_plist(ipa_url, cert_display_name, BUNDLE_ID, version)
         plist_path    = os.path.join(DEPLOY_DIR, plist_name)
         with open(plist_path, "w") as f:
             f.write(plist_content)
-        print(f"  ✓ {plist_name} written")
+        print(f"  ✓ {plist_name} written (title: {cert_display_name})")
 
         certs_meta.append({
             "folder":    folder,
