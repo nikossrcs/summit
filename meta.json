@@ -1,267 +1,267 @@
 {
   "version": "v1.5.1",
-  "build_time": "2026-05-12 19:16",
+  "build_time": "2026-05-12 19:29",
   "bundle_id": "com.nyasami.ksign",
   "app_name": "KSign",
   "certs": [
     {
       "folder": "XL AXIATA, PT TBK",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_XL_AXIATA__PT_TBK_signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-XL_AXIATA__PT_TBK.plist",
-      "sha256": "f3bffbc87c1d10ba593d3feb4991ec2827edffe5f7c398529a4291b62bf472af",
-      "size_mb": 13.502424240112305
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_XL_AXIATA_PT_TBK_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-XL_AXIATA_PT_TBK.plist",
+      "sha256": "d3ef3bad8a498c6d342bb312f4cc7749ac8426ff7cfcf8d83e297c811042990b",
+      "size_mb": 13.50243091583252
     },
     {
       "folder": "Wuling Power Corporation",
       "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Wuling_Power_Corporation_signed.ipa",
       "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Wuling_Power_Corporation.plist",
-      "sha256": "38ca146eec9bce0415f471ef2f56721bfd14816d475feed50b816f8a337cdc22",
-      "size_mb": 13.50235652923584
+      "sha256": "e4c983ec146c69a1f93bea5fb6df3fdab6fb75235e541635a1a523ec2164902c",
+      "size_mb": 13.502355575561523
     },
     {
       "folder": "Wasu Media & Networking Co., Ltd (jicengzhili_create20250114)",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Wasu_Media___Networking_Co___Ltd__jicengzhili_create20250114__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Wasu_Media___Networking_Co___Ltd__jicengzhili_create20250114_.plist",
-      "sha256": "6b927bdcd6b13efc46a0ebfe8fe73727e468cb9671aa1a293c10f75e78c4c293",
-      "size_mb": 13.502718925476074
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Wasu_Media_Networking_Co_Ltd_jicengzhili_create20250114_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Wasu_Media_Networking_Co_Ltd_jicengzhili_create20250114.plist",
+      "sha256": "d46068a010b3389041b59b96e0892b1355b227f8a22623975fe18a51ca0a474b",
+      "size_mb": 13.50272274017334
     },
     {
       "folder": "Wasu Media & Networking Co., Ltd (com.wasu.demo)",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Wasu_Media___Networking_Co___Ltd__com_wasu_demo__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Wasu_Media___Networking_Co___Ltd__com_wasu_demo_.plist",
-      "sha256": "e39f6e5d4c460f079c4bfac3b77dc31247f0ff78834fdb292df5bf2bc52efb1a",
-      "size_mb": 13.508573532104492
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Wasu_Media_Networking_Co_Ltd_com_wasu_demo_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Wasu_Media_Networking_Co_Ltd_com_wasu_demo.plist",
+      "sha256": "40f445ea9247f61c975dc78323d73842b08de57d1d808dce4cff37d1bd6d4cca",
+      "size_mb": 13.508581161499023
     },
     {
       "folder": "VIETNAM JOINT STOCK COMMERCIAL BANK FOR INDUSTRY AND TRADE",
       "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_VIETNAM_JOINT_STOCK_COMMERCIAL_BANK_FOR_INDUSTRY_AND_TRADE_signed.ipa",
       "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-VIETNAM_JOINT_STOCK_COMMERCIAL_BANK_FOR_INDUSTRY_AND_TRADE.plist",
-      "sha256": "af368bce67257c5f73d0ea060467d015955499b612049a2b09a61b30c8793adf",
-      "size_mb": 13.502799034118652
+      "sha256": "27813fbbcda86718c6e431bb3b6962c4d97322970c4292253d5b693a7b2df77c",
+      "size_mb": 13.502802848815918
     },
     {
       "folder": "VIETNAM AIRLINES JSC",
       "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_VIETNAM_AIRLINES_JSC_signed.ipa",
       "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-VIETNAM_AIRLINES_JSC.plist",
-      "sha256": "bcd6fbc25cc95cca9e5fb6846d12ac4a7b82ae7beddcfdc38b27912083f3c60a",
-      "size_mb": 13.502006530761719
+      "sha256": "3787bf0f352627b50927c6581fb68188fb0c73a94f615ef66468cde0e6dcf723",
+      "size_mb": 13.50200366973877
     },
     {
       "folder": "Tianjin University of Commerce",
       "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Tianjin_University_of_Commerce_signed.ipa",
       "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Tianjin_University_of_Commerce.plist",
-      "sha256": "4c42a1d1f177de6b18ef2a016f96b06bef2910c372606d3bebb7c9d1e0e1363e",
-      "size_mb": 13.502046585083008
+      "sha256": "6cc17e0a98e8c9ccca5cbcc229b502c506baf3527608099e74b2877d335374fa",
+      "size_mb": 13.502047538757324
     },
     {
       "folder": "Qingdao Rural Commercial Bank Co., Ltd",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Qingdao_Rural_Commercial_Bank_Co___Ltd_signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Qingdao_Rural_Commercial_Bank_Co___Ltd.plist",
-      "sha256": "67bd798bc9e64dc8acfa7d41146052d22144a4199201e54229d17ee6043321f9",
-      "size_mb": 13.502031326293945
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Qingdao_Rural_Commercial_Bank_Co_Ltd_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Qingdao_Rural_Commercial_Bank_Co_Ltd.plist",
+      "sha256": "0cfc6908df2cf52bc298925f2cd7635b99d60463c5e8d7c0aee6a8a522d522b8",
+      "size_mb": 13.502032279968262
     },
     {
       "folder": "PowerChina International Group Limited (nj61nO)",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_PowerChina_International_Group_Limited__nj61nO__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-PowerChina_International_Group_Limited__nj61nO_.plist",
-      "sha256": "0499b35a6ee5a4d3a2a4661dd01b9e404c313a954321d307282bfd16500ec4ce",
-      "size_mb": 13.502988815307617
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_PowerChina_International_Group_Limited_nj61nO_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-PowerChina_International_Group_Limited_nj61nO.plist",
+      "sha256": "bed8ec3c5b039520b7549f0564174bb96d3b4f87f67c361238265343926cd89b",
+      "size_mb": 13.502992630004883
     },
     {
       "folder": "PowerChina International Group Limited (j3krPY)",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_PowerChina_International_Group_Limited__j3krPY__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-PowerChina_International_Group_Limited__j3krPY_.plist",
-      "sha256": "4399172638f730f9ccdc86fca24718404ed110517af8729c71c4b39d89b8e88c",
-      "size_mb": 13.501998901367188
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_PowerChina_International_Group_Limited_j3krPY_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-PowerChina_International_Group_Limited_j3krPY.plist",
+      "sha256": "c876f4acaacbaa9de6b32cec7743e66994a0930066bc99259b88fd050ea01539",
+      "size_mb": 13.501989364624023
     },
     {
       "folder": "PowerChina International Group Limited (iWaMrs)",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_PowerChina_International_Group_Limited__iWaMrs__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-PowerChina_International_Group_Limited__iWaMrs_.plist",
-      "sha256": "8821b4437e80e3d6a5c2a7ff4dfaa6b8cde62532e29f80fbc9b66b72c5e0efbb",
-      "size_mb": 13.501998901367188
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_PowerChina_International_Group_Limited_iWaMrs_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-PowerChina_International_Group_Limited_iWaMrs.plist",
+      "sha256": "6655163d7e561fb2af09a60604db755a1549718f6ecd1bb4eae24259dcc3a6bb",
+      "size_mb": 13.50200080871582
     },
     {
       "folder": "PowerChina International Group Limited (HRU79V)",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_PowerChina_International_Group_Limited__HRU79V__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-PowerChina_International_Group_Limited__HRU79V_.plist",
-      "sha256": "dc3ef87a54577fbb6700d9335bb723325b529c293324f4ee112906be4fe5d074",
-      "size_mb": 13.502994537353516
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_PowerChina_International_Group_Limited_HRU79V_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-PowerChina_International_Group_Limited_HRU79V.plist",
+      "sha256": "d96cfbdc1e5833cd05edefd901b0586192e7f225b1ce59e21110539c94162f8a",
+      "size_mb": 13.503006935119629
     },
     {
       "folder": "PowerChina International Group Limited (DoaTYw)",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_PowerChina_International_Group_Limited__DoaTYw__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-PowerChina_International_Group_Limited__DoaTYw_.plist",
-      "sha256": "0e5bf516c4c8b1b832b8165856b224828134fec54607ac01c803344a8b5ad11d",
-      "size_mb": 13.502001762390137
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_PowerChina_International_Group_Limited_DoaTYw_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-PowerChina_International_Group_Limited_DoaTYw.plist",
+      "sha256": "861b4790c8de1454e67f9f26f946739ff688728a5eaebce518af861a0324b573",
+      "size_mb": 13.502002716064453
     },
     {
       "folder": "National Oilwell Varco, Inc",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_National_Oilwell_Varco__Inc_signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-National_Oilwell_Varco__Inc.plist",
-      "sha256": "d9f31b99b69222a2c14aacb2d66a3dcfc5a235d437ffbf93c7596f30fa007e7c",
-      "size_mb": 13.502288818359375
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_National_Oilwell_Varco_Inc_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-National_Oilwell_Varco_Inc.plist",
+      "sha256": "87c063a5dd05c2b8d2886f4d81a19d2cc8fbfcd226c264deb768ba377ebf7b47",
+      "size_mb": 13.502291679382324
     },
     {
       "folder": "Luoyang Postal Administration",
       "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Luoyang_Postal_Administration_signed.ipa",
       "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Luoyang_Postal_Administration.plist",
-      "sha256": "2629428c863e4f9caadbeeec71cb17fad2149547e431b30e419173089de9864d",
+      "sha256": "fb740abf27a368d8afd57407f67a08c47fd60a92c6d8af9cde20d4692573ab11",
       "size_mb": 13.502145767211914
     },
     {
       "folder": "Guangzhou Huahan Educational & Technology Co., Ltd.",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Guangzhou_Huahan_Educational___Technology_Co___Ltd__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Guangzhou_Huahan_Educational___Technology_Co___Ltd_.plist",
-      "sha256": "95f935c3065be82ad99227b4c57b85dbc3adc5259d72e232950a51cdb9018d38",
-      "size_mb": 13.506988525390625
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Guangzhou_Huahan_Educational_Technology_Co_Ltd_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Guangzhou_Huahan_Educational_Technology_Co_Ltd.plist",
+      "sha256": "04039d7aea1179d0bec49cceaa36cc45f32dbd2ea43723d7620b4dd0c62180c0",
+      "size_mb": 13.506994247436523
     },
     {
       "folder": "Global Takeoff, Inc (suppose)",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Global_Takeoff__Inc__suppose__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Global_Takeoff__Inc__suppose_.plist",
-      "sha256": "db74faa2855ae6248f838bff314182b32368825b0ee1eceba447fcb50fedfa34",
-      "size_mb": 13.501622200012207
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Global_Takeoff_Inc_suppose_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Global_Takeoff_Inc_suppose.plist",
+      "sha256": "9ed1a7df55e25395aa30180258f5304522df539b0527429632b16cd07d28fae8",
+      "size_mb": 13.50162410736084
     },
     {
       "folder": "Global Takeoff, Inc (branch distribution)",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Global_Takeoff__Inc__branch_distribution__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Global_Takeoff__Inc__branch_distribution_.plist",
-      "sha256": "5ada600a2244be22f26963fa7655f0d30a76797d79e4d44ce2923104504b4ae4",
-      "size_mb": 13.502086639404297
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Global_Takeoff_Inc_branch_distribution_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Global_Takeoff_Inc_branch_distribution.plist",
+      "sha256": "d87e8981effb703d006ea409f40ca9edde152c18247fba843a696a8ba44e4884",
+      "size_mb": 13.502095222473145
     },
     {
       "folder": "Global Takeoff, Inc (ads)",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Global_Takeoff__Inc__ads__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Global_Takeoff__Inc__ads_.plist",
-      "sha256": "2e2666c058ea0524d97f27294a341fcd5b17f41150671f6e81e51327c6a50dbd",
-      "size_mb": 13.501608848571777
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Global_Takeoff_Inc_ads_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Global_Takeoff_Inc_ads.plist",
+      "sha256": "2ef14ba7d495f99686fef912a41dc6fc1aeaf012c60bbd65ddf7cb22362bb7ae",
+      "size_mb": 13.501611709594727
     },
     {
       "folder": "Global Takeoff, Inc (Scope ent distribution)",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Global_Takeoff__Inc__Scope_ent_distribution__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Global_Takeoff__Inc__Scope_ent_distribution_.plist",
-      "sha256": "1d9f7910227f9d6147557088c504707ff0ba044f7b954523238412ed1ebbfb47",
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Global_Takeoff_Inc_Scope_ent_distribution_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Global_Takeoff_Inc_Scope_ent_distribution.plist",
+      "sha256": "b593322fec40cab0a91a9abb903a67ccb58b1d2bbe361be6641a4cfba234ef1b",
       "size_mb": 13.502497673034668
     },
     {
       "folder": "Global Takeoff, Inc (HLS)",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Global_Takeoff__Inc__HLS__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Global_Takeoff__Inc__HLS_.plist",
-      "sha256": "7c10f417cab0de2646acb635798e6ec61a021c4c04f1b405d219fd557f90496b",
-      "size_mb": 13.501629829406738
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Global_Takeoff_Inc_HLS_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Global_Takeoff_Inc_HLS.plist",
+      "sha256": "c082b424438cc0b17ac9b3383389c50c7773450537e335a9a841ff711fc0e44e",
+      "size_mb": 13.501623153686523
     },
     {
       "folder": "Global Takeoff, Inc (Fairplay)",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Global_Takeoff__Inc__Fairplay__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Global_Takeoff__Inc__Fairplay_.plist",
-      "sha256": "a5236964316c903b424733ac6fb6ceb0d96659096812233232d2546bf1a35225",
-      "size_mb": 13.501615524291992
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Global_Takeoff_Inc_Fairplay_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Global_Takeoff_Inc_Fairplay.plist",
+      "sha256": "6f41cbaefd67a425e68a65395b36a601fe402d3099fd5ec2dde53ecd3fe6c432",
+      "size_mb": 13.501614570617676
     },
     {
       "folder": "Global Takeoff, Inc (Deeplink)",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Global_Takeoff__Inc__Deeplink__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Global_Takeoff__Inc__Deeplink_.plist",
-      "sha256": "001db7fc31e53946356f3a76f86d0e863c9af004d2667b1724647dd1c8ef6982",
-      "size_mb": 13.501688003540039
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Global_Takeoff_Inc_Deeplink_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Global_Takeoff_Inc_Deeplink.plist",
+      "sha256": "c23cbe7813c6479149cd20022729ea34138733cb26c3c4118930e1bb2a5783fd",
+      "size_mb": 13.501690864562988
     },
     {
       "folder": "Global Takeoff, Inc (Airtel Adhoc)",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Global_Takeoff__Inc__Airtel_Adhoc__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Global_Takeoff__Inc__Airtel_Adhoc_.plist",
-      "sha256": "65e7c746d4286669d841f43dbc5f8756fd5dc126ea48a8d60fc67794913ae178",
-      "size_mb": 13.502318382263184
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Global_Takeoff_Inc_Airtel_Adhoc_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Global_Takeoff_Inc_Airtel_Adhoc.plist",
+      "sha256": "9c40c2b0a73bd9bcae356d68356ab42f52ef39492907857701d468223e1b727c",
+      "size_mb": 13.502317428588867
     },
     {
       "folder": "Forevermark Marketing(Shanghai ) Limited",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Forevermark_Marketing_Shanghai___Limited_signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Forevermark_Marketing_Shanghai___Limited.plist",
-      "sha256": "824e2ab49206ccf5c502a53cba839bf7d8f9da8c6ce67000273f2bcd331de7ca",
-      "size_mb": 13.502224922180176
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Forevermark_Marketing_Shanghai_Limited_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Forevermark_Marketing_Shanghai_Limited.plist",
+      "sha256": "90c47b8804af8705605184981cb9d985758e6112939ef7f7431703a9d553fc1b",
+      "size_mb": 13.502225875854492
     },
     {
       "folder": "Etisalat - Emirates Telecommunications Corporation",
       "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Etisalat_-_Emirates_Telecommunications_Corporation_signed.ipa",
       "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Etisalat_-_Emirates_Telecommunications_Corporation.plist",
-      "sha256": "bf0aad73874f00725a4dc331ea93bcfaa0d0161094509d4aed4fa426190d3685",
-      "size_mb": 13.507304191589355
+      "sha256": "bf3c4a294826a42d67cc1bb0bf3491c8c4edab2cec90d580ebd5fe6044fbcf18",
+      "size_mb": 13.507301330566406
     },
     {
       "folder": "Commission on Elections (oadav)",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Commission_on_Elections__oadav__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Commission_on_Elections__oadav_.plist",
-      "sha256": "762da74fd8fa54bdbae050f29e275f195e2468c8d9ba0abbf126a3e92a5c3938",
-      "size_mb": 13.502422332763672
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Commission_on_Elections_oadav_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Commission_on_Elections_oadav.plist",
+      "sha256": "18ca8744ce2f01b429e46e5e31ddef59111e66722c9b8a671e928708d3651574",
+      "size_mb": 13.502419471740723
     },
     {
       "folder": "Commission on Elections (United politics)",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Commission_on_Elections__United_politics__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Commission_on_Elections__United_politics_.plist",
-      "sha256": "9e6556f3ce824a302947a912b8f121c2e5a9b0a522adaf19a8d83f42d3d9a5ad",
-      "size_mb": 13.502630233764648
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Commission_on_Elections_United_politics_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Commission_on_Elections_United_politics.plist",
+      "sha256": "55e05158fecf0c2d720a078ade5563026ea0cec95aa91c5a90637aa743d69874",
+      "size_mb": 13.502636909484863
     },
     {
       "folder": "Commission on Elections (Report)",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Commission_on_Elections__Report__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Commission_on_Elections__Report_.plist",
-      "sha256": "145b78248ed51ecaeba0f4ed7b8e2eafe375bb4a39470fc9905989e43dc1582f",
-      "size_mb": 13.502891540527344
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Commission_on_Elections_Report_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Commission_on_Elections_Report.plist",
+      "sha256": "99337b86d10372beb8f9be188664656711bd2945f2340dd3c46a5af86fe26556",
+      "size_mb": 13.502898216247559
     },
     {
       "folder": "Commission on Elections (EMS Manage)",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Commission_on_Elections__EMS_Manage__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Commission_on_Elections__EMS_Manage_.plist",
-      "sha256": "bea07551a1f8ac1aa54464423737a381f1b6f905a8aaf7c6e169867e66248c49",
-      "size_mb": 13.502676963806152
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Commission_on_Elections_EMS_Manage_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Commission_on_Elections_EMS_Manage.plist",
+      "sha256": "586438357d9ae47fa0c47ae586a3ce836fd02196cb5e7a9880fdb1c9544652e9",
+      "size_mb": 13.502686500549316
     },
     {
       "folder": "Commission on Elections (Complaints Management)",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Commission_on_Elections__Complaints_Management__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Commission_on_Elections__Complaints_Management_.plist",
-      "sha256": "b52529ad10bf0609dd0e40d54506c17aaed6096ecaaba04f17329c5504549c70",
-      "size_mb": 13.50478744506836
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Commission_on_Elections_Complaints_Management_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Commission_on_Elections_Complaints_Management.plist",
+      "sha256": "9afeff0e3c08c2c187fc44e5113f74e395d6195b2b9baf51ad4fe963045e8f90",
+      "size_mb": 13.504788398742676
     },
     {
       "folder": "Commission on Elections (Committee Supervision)",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Commission_on_Elections__Committee_Supervision__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Commission_on_Elections__Committee_Supervision_.plist",
-      "sha256": "e838a791c2bc00d360ab012f56acded51213ceb4b91bf079d703d8ee31ec72f4",
-      "size_mb": 13.502734184265137
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Commission_on_Elections_Committee_Supervision_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Commission_on_Elections_Committee_Supervision.plist",
+      "sha256": "4dc5fa8d350703f5826556bcfc6c024250dae981e0843237c4329147098ccbd5",
+      "size_mb": 13.502737045288086
     },
     {
       "folder": "China Telecommunications Corporation",
       "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_China_Telecommunications_Corporation_signed.ipa",
       "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-China_Telecommunications_Corporation.plist",
-      "sha256": "6f2af9acef8da54d648e1f9e7b7f81d65c73b1fc826851f38fe0668671bf8a56",
-      "size_mb": 13.501842498779297
+      "sha256": "665d3801f9c4ac4ab892c72851279ae2549c228e3fca491442363ef7d2de5c91",
+      "size_mb": 13.501846313476562
     },
     {
       "folder": "China National Heavy Duty Truck Group Co., Ltd.",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_China_National_Heavy_Duty_Truck_Group_Co___Ltd__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-China_National_Heavy_Duty_Truck_Group_Co___Ltd_.plist",
-      "sha256": "38745ca8927322b18d22a644e58b3bfbdb5120bb7eea521abaf24ad20ed01f6f",
-      "size_mb": 13.507403373718262
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_China_National_Heavy_Duty_Truck_Group_Co_Ltd_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-China_National_Heavy_Duty_Truck_Group_Co_Ltd.plist",
+      "sha256": "3185a30f39ac4214cb46c8117a0ebd5d74a2e5dcd30790d7dd82dea341dced6f",
+      "size_mb": 13.50740909576416
     },
     {
       "folder": "China Academy of Railway Sciences",
       "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_China_Academy_of_Railway_Sciences_signed.ipa",
       "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-China_Academy_of_Railway_Sciences.plist",
-      "sha256": "4216b11d94acbc79e9f09f12e6f487bc5e854326affbb440c9404b2183446b7f",
-      "size_mb": 13.50229263305664
+      "sha256": "1fa5a8887e3d84ea22ba197e686a212df406bba442247011328aa74689b7f0b4",
+      "size_mb": 13.50229549407959
     },
     {
       "folder": "Beijing Zhizhangyi Inc.",
-      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Beijing_Zhizhangyi_Inc__signed.ipa",
-      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Beijing_Zhizhangyi_Inc_.plist",
-      "sha256": "b840ae286599ae936a31742a5ba9736926213de0e0697c31db739cdc3a277adb",
-      "size_mb": 13.503769874572754
+      "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Beijing_Zhizhangyi_Inc_signed.ipa",
+      "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Beijing_Zhizhangyi_Inc.plist",
+      "sha256": "7d0bdbdb11506a1c8f2200a383634336a3c386970b3b671a3060169a88d65c24",
+      "size_mb": 13.503768920898438
     },
     {
       "folder": "Aramco Services Company",
       "ipa_url": "https://nikos-projects.github.io/ksign-hub/ksign_v1.5.1_Aramco_Services_Company_signed.ipa",
       "plist_url": "https://nikos-projects.github.io/ksign-hub/manifest-Aramco_Services_Company.plist",
-      "sha256": "fd0c96f45de1015063f512b34a40abac876eb0cee30eea70d828a6a3c5568568",
-      "size_mb": 13.502630233764648
+      "sha256": "633f1f26e310a9d526a7c3432d55a71aa3a37414ab5b04fa7b5e56f4a428c9db",
+      "size_mb": 13.502633094787598
     }
   ]
 }
