@@ -23,6 +23,9 @@ import plistlib
 import shutil
 import zipfile
 import tempfile
+import uuid
+import subprocess
+from datetime import datetime, timezone
 
 BUILD_DIR  = "/tmp/build"
 BUNDLE_DIR = os.path.join(BUILD_DIR, "bundled")
@@ -73,6 +76,56 @@ def patch_info_plist(plist_path, patches: dict):
         data[key] = value
     with open(plist_path, "wb") as f:
         plistlib.dump(data, f, fmt=plistlib.FMT_XML)
+
+
+def get_p12_expiry(p12_path, password=""):
+    """
+    Extract the certificate expiry date from a .p12 file using openssl.
+    Returns (datetime_utc, days_remaining) or (None, None) on failure.
+    """
+    try:
+        # Step 1: extract the PEM cert from the p12
+        cmd_pem = [
+            "openssl", "pkcs12",
+            "-in", p12_path,
+            "-nokeys", "-nomacver",
+            "-passin", f"pass:{password}",
+        ]
+        pem_result = subprocess.run(cmd_pem, capture_output=True)
+        if pem_result.returncode != 0:
+            # Try legacy mode (older p12 formats)
+            cmd_pem += ["-legacy"]
+            pem_result = subprocess.run(cmd_pem, capture_output=True)
+        if pem_result.returncode != 0:
+            print(f"  [WARN] openssl pkcs12 failed: {pem_result.stderr.decode(errors='ignore')[:200]}")
+            return None, None
+
+        pem_data = pem_result.stdout
+
+        # Step 2: read NotAfter from the PEM
+        cmd_dates = ["openssl", "x509", "-noout", "-enddate"]
+        dates_result = subprocess.run(cmd_dates, input=pem_data, capture_output=True)
+        if dates_result.returncode != 0:
+            print(f"  [WARN] openssl x509 failed: {dates_result.stderr.decode(errors='ignore')[:200]}")
+            return None, None
+
+        # Output looks like: notAfter=Nov 12 23:59:59 2025 GMT
+        line = dates_result.stdout.decode(errors="ignore").strip()
+        m = re.search(r"notAfter=(.+)", line)
+        if not m:
+            return None, None
+
+        date_str = m.group(1).strip()
+        expiry   = datetime.strptime(date_str, "%b %d %H:%M:%S %Y %Z").replace(tzinfo=timezone.utc)
+        now      = datetime.now(timezone.utc)
+        days_left = (expiry - now).days
+
+        print(f"  ✓ Cert expiry: {expiry.strftime('%Y-%m-%d')} ({days_left} days left)")
+        return expiry, days_left
+
+    except Exception as e:
+        print(f"  [WARN] Could not read p12 expiry: {e}")
+        return None, None
 
 
 def safe_slug(name, maxlen=24):
@@ -138,17 +191,19 @@ def inject_certs_into_ipa(input_ipa, output_ipa, p12_path, mp_path, password,
         open(os.path.join(app_path, "import.ksign"), "w").write(manifest_json)
         print(f"  ✓ import.ksign written")
 
-        # Injection 3: Library/Application Support/
+        # Injection 3: Library/Application Support/Certificates/<UUID>/
+        # Feather/KSign stores each cert in a UUID-named subfolder
+        cert_uuid    = str(uuid.uuid4())
         lib_cert_dir = os.path.join(
             app_path, "Library", "Application Support",
-            "KSign", "Certificates", cert_folder_name
+            "Certificates", cert_uuid
         )
         os.makedirs(lib_cert_dir, exist_ok=True)
         shutil.copy2(p12_path, os.path.join(lib_cert_dir, p12_name))
         shutil.copy2(mp_path,  os.path.join(lib_cert_dir, mp_name))
         if password:
             open(os.path.join(lib_cert_dir, "password.txt"), "w").write(password)
-        print(f"  ✓ Injected → Library/Application Support/KSign/Certificates/")
+        print(f"  ✓ Injected → Library/Application Support/Certificates/{cert_uuid}/")
 
         # ── Repack ───────────────────────────────────────────────────────────
         os.makedirs(os.path.dirname(output_ipa), exist_ok=True)
@@ -221,6 +276,10 @@ def main():
             # Unique version: <app_index>.<cert_index>
             unique_bundle_version = f"1.{apps.index(app)}.{i}"
 
+            # Extract expiry from .p12 before bundling
+            expiry_dt, days_left = get_p12_expiry(p12_path, password)
+            expiry_str = expiry_dt.strftime("%Y-%m-%d") if expiry_dt else "unknown"
+
             out_dir    = os.path.join(BUNDLE_DIR, app_name, folder)
             os.makedirs(out_dir, exist_ok=True)
             output_ipa = os.path.join(out_dir, "ksign_bundled.ipa")
@@ -242,6 +301,8 @@ def main():
                     "bundled_ipa":    output_ipa,
                     "bundle_id":      unique_bundle_id,
                     "bundle_version": unique_bundle_version,
+                    "cert_expiry":    expiry_str,
+                    "cert_days_left": days_left,
                 })
             except Exception as e:
                 print(f"  [ERROR] Failed to bundle '{app_name}' × '{folder}': {e}")
