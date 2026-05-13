@@ -672,9 +672,6 @@ def main():
     version    = open(ver_file).read().strip() if os.path.exists(ver_file) else VERSION
     build_time = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M")
 
-    # Strip leading 'v' — bundle-version must be numeric-ish for iOS
-    ver_clean = version.lstrip("v") or "1.0"
-
     certs_meta = []
 
     for idx, item in enumerate(signed_items):
@@ -699,18 +696,20 @@ def main():
         plist_name = f"manifest-{slug}.plist"
         plist_url  = f"{BASE_URL}/{plist_name}"
 
-        # ── Plist title & version MUST be unique per cert ──────────────────
-        # iOS identifies OTA installs by (bundle-identifier, bundle-version).
-        # If two plists share the same pair iOS fails with "couldn't be installed".
-        # Appending the zero-padded index makes bundle-version unique.
-        plist_title   = f"{APP_NAME} — {folder}"
-        plist_version = f"{ver_clean}.{idx}"   # e.g. "1.2.3.0", "1.2.3.1"
+        # ── Plist MUST mirror the patched Info.plist exactly ───────────────
+        # bundle_cert.py wrote unique CFBundleIdentifier + CFBundleVersion
+        # into each IPA's Info.plist. The OTA manifest plist MUST use the
+        # same values — if they differ iOS rejects the install outright.
+        # Fall back to safe computed values for older manifests.
+        plist_bundle_id = item.get("bundle_id",     f"{BUNDLE_ID}.{slug}")
+        plist_version   = item.get("bundle_version", f"1.0.{idx}")
+        plist_title     = f"{APP_NAME} — {folder}"
 
-        plist_content = generate_plist(ipa_url, plist_title, BUNDLE_ID, plist_version)
+        plist_content = generate_plist(ipa_url, plist_title, plist_bundle_id, plist_version)
         plist_path    = os.path.join(DEPLOY_DIR, plist_name)
         with open(plist_path, "w") as f:
             f.write(plist_content)
-        print(f"  ✓ {plist_name}  title='{plist_title}'  version='{plist_version}'")
+        print(f"  ✓ {plist_name}  id='{plist_bundle_id}'  version='{plist_version}'")
 
         certs_meta.append({
             "folder":    folder,
