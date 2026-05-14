@@ -283,6 +283,7 @@ def main():
                     "bundle_version": unique_bundle_version,
                     "cert_expiry":    expiry_str,
                     "cert_days_left": days_left,
+                    "comment":        app.get("comment", ""),
                 })
             except Exception as e:
                 print(f"  [ERROR] Failed to bundle '{app_name}' × '{folder}': {e}")
