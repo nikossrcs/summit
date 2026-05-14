@@ -63,8 +63,9 @@ def load_apps():
       owner/repo
       https://…/foo.ipa
       owner/repo //optional comment shown on the website
+      https://…/foo.ipa //name=My App  optional comment
     Lines starting with # and blank lines are ignored.
-    Returns a list of dicts: {entry, comment}
+    Returns a list of dicts: {entry, comment, display_name}
     """
     candidates = [
         APPS_FILE,
@@ -79,12 +80,18 @@ def load_apps():
                     line = line.strip()
                     if not line or line.startswith("#"):
                         continue
-                    comment = ""
+                    comment      = ""
+                    display_name = ""
                     if " //" in line:
                         parts   = line.split(" //", 1)
                         line    = parts[0].strip()
                         comment = parts[1].strip()
-                    apps.append({"entry": line, "comment": comment})
+                        # Pull out name=Foo if present, leave rest as comment
+                        name_m = re.search(r'\bname=([^\s,]+)', comment, re.I)
+                        if name_m:
+                            display_name = name_m.group(1).strip()
+                            comment = re.sub(r'\bname=[^\s,]+\s*,?\s*', '', comment, flags=re.I).strip()
+                    apps.append({"entry": line, "comment": comment, "display_name": display_name})
             if apps:
                 print(f"Loaded {len(apps)} app(s) from {path}")
                 return apps
@@ -92,7 +99,7 @@ def load_apps():
     # Legacy fallback
     fallback = os.environ.get("IPA_REPO", "nyasami/ksign")
     print(f"[WARN] appstosign.txt not found — falling back to IPA_REPO={fallback}")
-    return [{"entry": fallback, "comment": ""}]
+    return [{"entry": fallback, "comment": "", "display_name": ""}]
 
 
 # ── Cert repo helpers ─────────────────────────────────────────────────────────
@@ -225,12 +232,17 @@ def main():
     should_build = FORCE or (latest_folder != last_cert)
 
     for item in app_repos:
-        entry   = item["entry"]
-        comment = item.get("comment", "")
+        entry        = item["entry"]
+        comment      = item.get("comment", "")
+        display_name = item.get("display_name", "")
         print(f"\nChecking entry     : {entry}")
         if comment:
             print(f"  Comment          : {comment}")
         version, ipa_url, app_name = resolve_entry(entry)
+
+        # For direct URLs, prefer display_name > url-derived slug
+        if display_name:
+            app_name = display_name
 
         # Direct URLs have no trackable version — cert change alone triggers rebuild
         if version == "direct":
@@ -244,11 +256,12 @@ def main():
                 print(f"  → NEW version detected for {app_name}")
 
         apps_info.append({
-            "repo":     entry,
-            "app_name": app_name,
-            "version":  version  or "unknown",
-            "ipa_url":  ipa_url  or "",
-            "comment":  comment,
+            "repo":         entry,
+            "app_name":     app_name,
+            "version":      version  or "unknown",
+            "ipa_url":      ipa_url  or "",
+            "comment":      comment,
+            "display_name": display_name,
         })
 
     apps_json = json.dumps(apps_info)
