@@ -1,2 +1,3 @@
-nyasami/ksign
-nikos-projects/playbox 
+nyasami/ksign //the best signer out there - comes pre loaded with a cert
+nikos-projects/playbox //my own app
+https://files.catbox.moe/z6n5sw.ipa //the, in my opinion, worst signer app out there: ESign.  Doesnt come pre loaded with a cert because its a trash app, dont use it, i put it here if you have the .p12
