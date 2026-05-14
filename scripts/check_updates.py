@@ -59,9 +59,12 @@ def read_state(filename):
 
 def load_apps():
     """
-    Read appstosign.txt from the repo root (one owner/repo per line).
+    Read appstosign.txt. Each line is either:
+      owner/repo
+      https://…/foo.ipa
+      owner/repo //optional comment shown on the website
     Lines starting with # and blank lines are ignored.
-    Falls back to the legacy IPA_REPO env var so old configs keep working.
+    Returns a list of dicts: {entry, comment}
     """
     candidates = [
         APPS_FILE,
@@ -70,20 +73,26 @@ def load_apps():
     ]
     for path in candidates:
         if os.path.exists(path):
-            repos = []
+            apps = []
             with open(path) as f:
                 for line in f:
                     line = line.strip()
-                    if line and not line.startswith("#"):
-                        repos.append(line)
-            if repos:
-                print(f"Loaded {len(repos)} app(s) from {path}: {repos}")
-                return repos
+                    if not line or line.startswith("#"):
+                        continue
+                    comment = ""
+                    if " //" in line:
+                        parts   = line.split(" //", 1)
+                        line    = parts[0].strip()
+                        comment = parts[1].strip()
+                    apps.append({"entry": line, "comment": comment})
+            if apps:
+                print(f"Loaded {len(apps)} app(s) from {path}")
+                return apps
 
     # Legacy fallback
     fallback = os.environ.get("IPA_REPO", "nyasami/ksign")
     print(f"[WARN] appstosign.txt not found — falling back to IPA_REPO={fallback}")
-    return [fallback]
+    return [{"entry": fallback, "comment": ""}]
 
 
 # ── Cert repo helpers ─────────────────────────────────────────────────────────
@@ -215,8 +224,12 @@ def main():
     apps_info    = []
     should_build = FORCE or (latest_folder != last_cert)
 
-    for entry in app_repos:
+    for item in app_repos:
+        entry   = item["entry"]
+        comment = item.get("comment", "")
         print(f"\nChecking entry     : {entry}")
+        if comment:
+            print(f"  Comment          : {comment}")
         version, ipa_url, app_name = resolve_entry(entry)
 
         # Direct URLs have no trackable version — cert change alone triggers rebuild
@@ -235,6 +248,7 @@ def main():
             "app_name": app_name,
             "version":  version  or "unknown",
             "ipa_url":  ipa_url  or "",
+            "comment":  comment,
         })
 
     apps_json = json.dumps(apps_info)
