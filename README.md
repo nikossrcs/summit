@@ -19,7 +19,7 @@ https links manually.
 ## Future features (ordered by priority)
 
 I hope to get
-1. A recently tried feature
+1. Nothing
 
 Soon™ 
 
