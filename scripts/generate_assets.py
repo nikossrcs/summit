@@ -602,8 +602,8 @@ def make_index_html(apps_data, base_url, build_time):
   <canvas id="particle-canvas" aria-hidden="true"></canvas>
 
   <header>
-    <h1>Niko's Projects</h1>
-    <p>Open this page on your iPhone or iPad, then tap Install.</p>
+    <h1>Summit - Nikos sources</h1>
+    <p>Open this page on your iPhone or iPad, then tap Install on the desired app and certificate.</p>
   </header>
 
   <div class="credit-banner">
